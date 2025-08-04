@@ -1,0 +1,7 @@
+port: 80
+endpoint: /message/send
+signalCliEndpoint: http://signal-cli/api/v1/rpc
+account: +491701234567
+allowedRecipients:
+- +491712345678
+- +491723456789
