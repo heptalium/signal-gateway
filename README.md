@@ -55,9 +55,9 @@ recipient=%2B491723456789&message=Hello+World%21
 ## Example curl Commands
 
 ```bash
-curl -X POST -H 'Content-Type: application/json' -d '{"recipient":"+491712345678","message":"Hello World!"}' signal-gateway/signal/message
+curl -X POST -H 'Content-Type: application/json' -d '{"recipient":"+491712345678","message":"Hello World!"}' signal-gateway/message/send
 ```
 
 ```bash
-curl --data-urlencode 'recipient=+491723456789' --data-urlencode 'message=Hello World!' signal-gateway/signal/message
+curl --data-urlencode 'recipient=+491723456789' --data-urlencode 'message=Hello World!' signal-gateway/message/send
 ```
