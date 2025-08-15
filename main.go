@@ -34,8 +34,8 @@ func main() {
 		}
 
 		var data struct {
-			Recipient string
-			Message   string
+			Recipient string `xml:"recipient"`
+			Message   string `xml:"message"`
 		}
 
 		if err := httputil.ParseRequest(w, r, &data); err != nil {
