@@ -41,6 +41,17 @@ Content-Length: 54
 {"recipient":"+491712345678","message":"Hello World!"}
 ```
 
+### XML
+
+```http
+POST /message/send HTTP/1.1
+Host: signal-gateway
+Content-Type: application/xml
+Content-Length: 107
+
+<?xml version="1.0"?><message><recipient>+491712345678</recipient><message>Hello World!</message></message>
+```
+
 ### Form Data
 
 ```http
@@ -52,6 +63,25 @@ Content-Type: application/x-www-form-urlencoded
 recipient=%2B491723456789&message=Hello+World%21
 ```
 
+### Multipart Form Data
+
+```http
+POST /message/send HTTP/1.1
+Host: signal-gateway
+Content-Length: 157
+Content-Type: multipart/form-data; boundary=data
+
+--data
+Content-Disposition: form-data; name="recipient"
+
++491723456789
+--data
+Content-Disposition: form-data; name="message"
+
+Hello World!
+--data--
+```
+
 ## Example curl Commands
 
 ```bash
@@ -59,5 +89,13 @@ curl -X POST -H 'Content-Type: application/json' -d '{"recipient":"+491712345678
 ```
 
 ```bash
+curl -X POST -H 'Content-Type: application/xml' -d '<?xml version="1.0"?><message><recipient>+491712345678</recipient><message>Hello World!</message></message>' signal-gateway/message/send
+```
+
+```bash
 curl --data-urlencode 'recipient=+491723456789' --data-urlencode 'message=Hello World!' signal-gateway/message/send
+```
+
+```bash
+curl -F 'recipient=+491723456789' -F 'message=Hello World!' signal-gateway/message/send
 ```
